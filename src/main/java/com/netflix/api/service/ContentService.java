@@ -7,6 +7,6 @@ public interface ContentService {
 	
 	ContentDTO addContent(ContentDTO contentDto);
 	List<ContentDTO> getContents();
-	ContentDTO getContentById(Integer id);
+	ContentDTO getContentByName(String name);
 
 }

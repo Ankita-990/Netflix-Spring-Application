@@ -37,9 +37,9 @@ public class ContentController {
 		return new ResponseEntity<List<ContentDTO>>(content, HttpStatus.OK);
 	}
 	
-	@GetMapping("/fetchById/{id}")
-	public ResponseEntity<ContentDTO> getContentById(@PathVariable Integer id) {
-		ContentDTO content = service.getContentById(id);
+	@GetMapping("/fetchByName/{name}")
+	public ResponseEntity<ContentDTO> getContentByName(@PathVariable String name) {
+		ContentDTO content = service.getContentByName(name);
 		return new ResponseEntity<ContentDTO>(content, HttpStatus.OK);
 	}
 

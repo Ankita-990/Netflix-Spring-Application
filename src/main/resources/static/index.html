@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+  Netflix Content Manager
+  Spring Boot REST API Integration
+  Endpoints:
+    POST   /api/netflix/add
+    GET    /api/netflix/fetch
+    GET    /api/netflix/fetchByName/{name}   ← changed from fetchById
+-->
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Netflix Content Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+
+    <link rel = "stylesheet" href = "/css/style.css ">
+</head>
+
+<body>
+
+    <!-- ================================================================
+         HEADER
+         ================================================================ -->
+    <header>
+        <div class="logo">
+            <div class="logo-icon">
+                <span>N</span>
+            </div>
+            <div class="logo-text">
+                <span class="logo-title">Netflix Content</span>
+                <span class="logo-sub">Management System</span>
+            </div>
+        </div>
+        <span class="header-badge">Spring Boot REST API</span>
+    </header>
+
+
+    <!-- ================================================================
+         MAIN GRID
+         ================================================================ -->
+    <main>
+
+        <!-- ── LEFT COLUMN ───────────────────────────────────────────── -->
+        <div class="left-col">
+
+            <!-- ADD CONTENT FORM -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon red">➕</div>
+                    <div>
+                        <div class="card-title">Add New Content</div>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <div class="field">
+                        <label for="c-name">Name</label>
+                        <input type="text" id="c-name" placeholder="e.g. Stranger Things"/>
+                        <div class="field-error" id="err-name"></div>
+                    </div>
+
+                    <div class="field">
+                        <label for="c-category">Category</label>
+                        <select id="c-category">
+                            <option value="">— Select a category —</option>
+                            <option>Movie</option>
+                            <option>Series</option>
+                            <option>Documentary</option>
+                            <option>Anime</option>
+                            <option>Kids</option>
+                            <option>Stand-Up</option>
+                            <option>Reality TV</option>
+                        </select>
+                        <div class="field-error" id="err-category"></div>
+                    </div>
+
+                    <div class="field">
+                        <label for="c-desc">Description</label>
+                        <textarea id="c-desc" placeholder="Brief description of the content..."></textarea>
+                        <div class="field-error" id="err-desc"></div>
+                    </div>
+
+                    <button class="btn btn-primary" id="add-btn" onclick="addContent()">
+                        <div class="spinner"></div>
+                        <span class="btn-label">Add Content</span>
+                    </button>
+
+                    <div class="alert alert-error"   id="add-error"></div>
+                    <div class="alert alert-success" id="add-success"></div>
+
+                </div>
+            </div>
+
+
+            <!-- FIND BY NAME (changed from Find by ID) -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">🔍</div>
+                    <div>
+                        <div class="card-title">Search Content</div>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <div class="field">
+                        <label for="get-name">Content Name</label>
+                        <div class="search-row">
+                            <input type="text" id="get-name" placeholder="e.g. Stranger Things"/>
+                            <button class="btn btn-secondary" onclick="getByName()">Search</button>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-error" id="get-error"></div>
+                    <div id="search-results"></div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ── RIGHT COLUMN ──────────────────────────────────────────── -->
+        <div class="right-col">
+
+            <!-- STATS -->
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-num"  id="stat-total">0</div>
+                    <div class="stat-label">Total</div>
+                </div>
+            </div>
+
+            <!-- ALL CONTENT -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon green">📋</div>
+                    <div>
+                        <div class="card-title">All Content</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="items-list">
+                        <div class="empty-state">
+                            <div class="empty-icon">🎬</div>
+                            <div class="empty-text">No content yet. Add your first title!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================================================================
+         TOAST NOTIFICATION
+         ================================================================ -->
+    <div id="toast"></div>
+
+
+    <script src = "/js/script.js"></script>
+
+</body>
+</html>

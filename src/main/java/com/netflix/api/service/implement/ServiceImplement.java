@@ -38,8 +38,8 @@ public class ServiceImplement implements ContentService {
 	}
 
 	@Override
-	public ContentDTO getContentById(Integer id) {
-		Content content = repo.findById(id).get();
+	public ContentDTO getContentByName(String name) {
+		Content content = repo.findByName(name).get();
 		return map.contentToDto(content);
 	}
 
