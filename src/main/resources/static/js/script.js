@@ -1,8 +1,8 @@
 /* ── API Endpoints ───────────────────────────────────────────── */
         const API = {
-            add:         '/api/netflix/add',              // POST
-            fetchAll:    '/api/netflix/fetch',             // GET all
-            fetchByName: '/api/netflix/fetchByName/'       // GET + name  ← changed
+            add:         'http://localhost:8080/api/netflix/add',              // POST
+            fetchAll:    'http://localhost:8080/api/netflix/fetch',             // GET all
+            fetchByName: 'http://localhost:8080/api/netflix/fetchByName/'       // GET by name
         };
 
         /* In-memory list of all content items */
@@ -174,9 +174,7 @@
                 }
 
             } catch (err) {
-                showAlert('add-error',
-                    '<div class="alert-title">Connection error</div>Could not reach the Spring Boot server.');
-                showToast('Connection failed', 'error');
+                // Connection failed
             }
 
             setLoading('add-btn', false);
