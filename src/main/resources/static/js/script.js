@@ -238,8 +238,7 @@
                 }
 
             } catch (err) {
-                showAlert('get-error',
-                    '<div class="alert-title">Connection error</div>Could not reach the Spring Boot server.');
+                    // Connection error
             }
         }
 
@@ -266,3 +265,4 @@
             .addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('c-category').focus(); });
 
         loadAll();
+
