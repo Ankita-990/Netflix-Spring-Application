@@ -1,8 +1,8 @@
 /* ── API Endpoints ───────────────────────────────────────────── */
         const API = {
-            add:         'https://netflix-spring-application-production.up.railway.app//api/netflix/add',              // POST
-            fetchAll:    'https://netflix-spring-application-production.up.railway.app//api/netflix/fetch',             // GET all
-            fetchByName: 'https://netflix-spring-application-production.up.railway.app//api/netflix/fetchByName/'       // GET by name
+            add:         'https://netflix-spring-application-production.up.railway.app/api/netflix/add',              // POST
+            fetchAll:    'https://netflix-spring-application-production.up.railway.app/api/netflix/fetch',             // GET all
+            fetchByName: 'https://netflix-spring-application-production.up.railway.app/api/netflix/fetchByName/'       // GET by name
         };
 
         /* In-memory list of all content items */
@@ -265,5 +265,6 @@
             .addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('c-category').focus(); });
 
         loadAll();
+
 
 
